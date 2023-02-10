@@ -1,0 +1,21 @@
+package esports.model;
+
+import java.util.UUID;
+
+import org.springframework.data.annotation.Id;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+
+@Entity
+public class Game {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private UUID id;
+	private String name;
+	private String bannerUrl;
+	
+	
+}

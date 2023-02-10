@@ -1,0 +1,5 @@
+package esports.repository;
+
+public interface adsRepository {
+
+}
