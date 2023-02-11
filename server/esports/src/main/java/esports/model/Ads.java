@@ -1,6 +1,7 @@
 package esports.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import esports.Enums.WeekDays;
@@ -10,13 +11,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 public class Ads {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String name;
 	private Integer yearsPlaying;
 	private String discord;
@@ -24,16 +27,17 @@ public class Ads {
 	private Integer hourStart;
 	private Integer HourEnd;
 	private Boolean voiceChat;
-	private Date createdAt;
+	@Temporal(TemporalType.DATE)
+	private LocalDate createdAt;
 	@ManyToOne
 	@JoinColumn(name = "id_game")
 	private Game game;
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -93,11 +97,11 @@ public class Ads {
 		this.voiceChat = voiceChat;
 	}
 
-	public Date getCreatedAt() {
+	public LocalDate getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(LocalDate createdAt) {
 		this.createdAt = createdAt;
 	}
 

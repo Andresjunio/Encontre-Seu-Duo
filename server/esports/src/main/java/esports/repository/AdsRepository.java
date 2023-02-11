@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import esports.model.Ads;
 
 @Repository
-public interface adsRepository extends JpaRepository<Ads, UUID>{
+public interface AdsRepository extends JpaRepository<Ads, Long>{
 
 	
 }
