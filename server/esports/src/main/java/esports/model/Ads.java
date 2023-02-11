@@ -3,12 +3,11 @@ package esports.model;
 import java.sql.Date;
 import java.util.UUID;
 
-import org.springframework.data.annotation.Id;
-
 import esports.Enums.WeekDays;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
