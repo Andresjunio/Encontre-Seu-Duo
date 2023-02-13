@@ -1,8 +1,7 @@
 package esports.model;
 
-import java.sql.Date;
-import java.time.LocalDate;
-import java.util.UUID;
+import java.util.Date;
+import java.util.List;
 
 import esports.Enums.WeekDays;
 import jakarta.persistence.Entity;
@@ -11,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
@@ -20,18 +20,18 @@ public class Ads {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
-	private Integer yearsPlaying;
-	private String discord;
-	private WeekDays days;
+	private List<WeekDays> days;
 	private Integer hourStart;
 	private Integer HourEnd;
 	private Boolean voiceChat;
 	@Temporal(TemporalType.DATE)
-	private LocalDate createdAt;
+	private Date createdAt;
 	@ManyToOne
-	@JoinColumn(name = "id_game")
+	@JoinColumn(name = "game_id")
 	private Game game;
+	@OneToOne
+	@JoinColumn(name = "player_id")
+	private Player player;
 
 	public Long getId() {
 		return id;
@@ -41,36 +41,20 @@ public class Ads {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Integer getYearsPlaying() {
-		return yearsPlaying;
-	}
-
-	public void setYearsPlaying(Integer yearsPlaying) {
-		this.yearsPlaying = yearsPlaying;
-	}
-
-	public String getDiscord() {
-		return discord;
-	}
-
-	public void setDiscord(String discord) {
-		this.discord = discord;
-	}
-
-	public WeekDays getDays() {
+	public List<WeekDays> getDays() {
 		return days;
 	}
 
-	public void setDays(WeekDays days) {
+	public void setDays(List<WeekDays> days) {
 		this.days = days;
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 
 	public Integer getHourStart() {
@@ -97,11 +81,11 @@ public class Ads {
 		this.voiceChat = voiceChat;
 	}
 
-	public LocalDate getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(LocalDate createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 

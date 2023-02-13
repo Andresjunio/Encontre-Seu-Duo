@@ -1,6 +1,6 @@
 package esports.service;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import org.springframework.stereotype.Service;
 
@@ -19,11 +19,13 @@ public class AdsService {
 	
 	public void saveCurrentDate() {
 		Ads ads = new Ads();
-		ads.setCreatedAt(new LocalDate());
+		ads.setCreatedAt(new Date());
 		
 		adsRepository.save(ads);
 		
 	}
+	
+	
 	
 	
 }
