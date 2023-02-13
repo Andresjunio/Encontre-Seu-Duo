@@ -9,8 +9,6 @@ import esports.repository.PlayerRepository;
 @RestController
 public class PlayerController {
 
-	@Autowired
-	PlayerRepository playerRepository;
 	
 	
 	

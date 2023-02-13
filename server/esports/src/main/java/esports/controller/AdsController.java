@@ -1,46 +1,46 @@
 package esports.controller;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import esports.model.Ads;
-import esports.repository.AdsRepository;
+import esports.service.AdsService;
 import jakarta.validation.Valid;
 
 @RestController
+@RequestMapping(value = "/ads")
 public class AdsController {
 
 	@Autowired
-	AdsRepository adsRepository;
+	AdsService adsService;
 
-	@GetMapping("/ads")
+	@GetMapping("/all")
 	public ResponseEntity<List<Ads>> getAllAds(){
-		return new ResponseEntity<List<Ads>>(adsRepository.findAll(), HttpStatus.OK);
+		return adsService.findAllAds();
 	}
 	
-	@GetMapping("/ads/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Ads> getOneAd(@PathVariable (value="id") Long id){
-		Optional<Ads> ad= adsRepository.findById(id);
-		if(ad.isEmpty()) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}else {
-			return new ResponseEntity<Ads>(ad.get(),HttpStatus.OK);
-		}
+		return adsService.getOneAd(id);
 	}
 	
-	@PostMapping("/add-ad")
+	@PostMapping("/add")
 	public ResponseEntity<Ads> saveAd(@RequestBody @Valid Ads ad) {
-		return new ResponseEntity<Ads>(adsRepository.save(ad), HttpStatus.CREATED);
+		return adsService.saveAd(ad);
+	}
+	
+	@DeleteMapping("delete/{id}")
+	public ResponseEntity<?> deleteAd(@PathVariable (value="id") Long id) {
+		return adsService.deleteAd(id);
 	}
 	
 	
