@@ -16,7 +16,7 @@ public class PlayerService {
 	@Autowired
 	PlayerRepository playerRepository;
 	
-	public ResponseEntity<Player> findiById(Long id){
+	public ResponseEntity<Player> findById(Long id){
 		Optional<Player> player = playerRepository.findById(id);
 		if(player.isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -31,6 +31,20 @@ public class PlayerService {
 		}
 		playerRepository.delete(player.get());
 		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	public ResponseEntity<Player> updatePlayer(Long id, Player player){
+		Optional<Player> playerOp = playerRepository.findById(id);
+		if(playerOp.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		player.setId(playerOp.get().getId());
+		return new ResponseEntity<Player>(playerRepository.save(player), HttpStatus.CREATED);
+		
+	}
+	
+	public ResponseEntity<Player> addPlayer(Player player){
+		return new ResponseEntity<Player>(playerRepository.save(player), HttpStatus.CREATED);
 	}
 	
 	

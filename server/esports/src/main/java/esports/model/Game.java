@@ -17,9 +17,6 @@ public class Game {
 	private Long id;
 	private String name;
 	private String bannerUrl;
-	@OneToMany(mappedBy = "game")
-	private List<Ads> ads;
-
 	
 	public Long getId() {
 		return id;
@@ -43,14 +40,6 @@ public class Game {
 
 	public void setBannerUrl(String bannerUrl) {
 		this.bannerUrl = bannerUrl;
-	}
-
-	public List<Ads> getAds() {
-		return ads;
-	}
-
-	public void setAds(List<Ads> ads) {
-		this.ads = ads;
 	}
 
 }

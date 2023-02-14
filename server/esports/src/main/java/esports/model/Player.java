@@ -14,7 +14,7 @@ public class Player {
 	private String name;
 	private Integer yearsPlaying;
 	private String discord;
-	private Integer rating;
+	private Integer rating = 100;
 	
 	public Long getId() {
 		return id;
@@ -22,10 +22,6 @@ public class Player {
 
 	public Integer getRating() {
 		return rating;
-	}
-
-	public void setRating(Integer rating) {
-		this.rating = rating;
 	}
 
 	public void setId(Long id) {
