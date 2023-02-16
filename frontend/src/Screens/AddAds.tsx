@@ -1,16 +1,35 @@
+import { useEffect, useState } from 'react';
 import '../Styles/main.css'
+
+type Games = {
+  name: string;
+  bannerUrl: string;
+}
 
 function AddAds(){
 
+  const [games, setGames] = useState<Games[]>([])
+
+  useEffect(() => {
+    fetch('http://localhost:8080/games/all')
+    .then((resp) => resp.json())
+    .then((data) => {
+      setGames(data)
+    })
+    .catch((err) => console.log(err))
+  },[])
+
   return (
-    <div>
-      <h1>Crie seu anúncio, ache o seu duo e divirta-se!</h1>
-      <select name="gameList" id="#gameList">
-        <option value="option1">Selecione o game</option>
-        <option value="option2">game2</option>
-        <option value="option3">game3</option>
-        <option value="option4">game4</option>
-      </select>
+    <div className="text-white">
+      <ul >
+        {games.map(repo => {
+          return (
+            <li key={repo.name}>
+              <strong>{repo.name}</strong>
+            </li>
+          )
+        })}
+      </ul>
     </div>
   )
 }
