@@ -23,8 +23,6 @@ public class GameController {
 	@Autowired
 	GameService gameService;
 	
-	
-	@CrossOrigin(origins = "http://localhost:8080/games")
 	@GetMapping("/all")
 	public ResponseEntity<List<Game>> findAllGames(){
 		return gameService.findAllGames();

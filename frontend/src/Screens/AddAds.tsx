@@ -24,9 +24,12 @@ function AddAds(){
       <ul >
         {games.map(repo => {
           return (
-            <li key={repo.name}>
-              <strong>{repo.name}</strong>
-            </li>
+          <div className="flex ">  
+              <li key={repo.name}>
+                  <strong>{repo.name}</strong>
+                  <img src={repo.bannerUrl} alt="" />
+              </li>
+          </div>
           )
         })}
       </ul>
