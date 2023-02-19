@@ -1,6 +1,6 @@
 # Projeto Encontre seu Duo
 
-Meu ojetivo com esse projeto pessoal é obter mais conhecimento à respeito das ferramentas de desenvolvimento web com Java: Spring Boot, Spring Web MVC, Spring Security, Hibernate e JPA. A motivação para a criação do projeto foi o evento NLW 9, da Rocketseat, que apresentou a ideia em uma simples versão web do projeto com Node e React. Minha ideia é recomeçar do zero o projeto, adaptando-o para a minha principal stack do momento (Java), adicionar novas funcionalidades, e me aventurar no React, já que nunca tinha utilizado. Todo o projeto foi reescrito por mim, e apesar de ser inspirado pelo evento, não copiei nenhum código pronto.  
+Meu ojetivo com esse projeto pessoal é obter mais conhecimento à respeito das ferramentas de desenvolvimento web com Java: Spring Boot, Spring Web MVC, Spring Security, Hibernate e JPA. A motivação para a criação do projeto foi o evento NLW 9, da Rocketseat, que apresentou a ideia em uma simples versão web do projeto com Node e React. Minha ideia é recomeçar do zero o projeto, adaptando-o para a minha principal stack do momento (Java), adicionar novas funcionalidades e me aventurar no React, já que nunca tinha utilizado. Todo o projeto foi reescrito por mim, e apesar de ser inspirado pelo evento, não copiei nenhum código pronto.  
 
 # Sobre o aplicativo
 Trata-se de uma aplicação voltada para o público gamer. O intuito é facilitar a conexão entre players na hora de jogar as partidas. Quem nunca procurou um duo para ajudar a ganhar uns pontos no seu jogo favorito? 
