@@ -5,7 +5,7 @@ import Sign from './Screens/Sign'
 import './Styles/main.css'
 import AddAds from './Screens/AddAds'
 import Home from './Screens/Home'
-import AddList from './Screens/AddList'
+import  AddList  from './Screens/AddList'
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     {/*<Sign />*/}
     {/* <AddAds /> */}
     {/* <Home /> */}
-    <AddList/>
+    {/* <AddList/> */}
 
   </React.StrictMode>,
 )
