@@ -1,5 +1,6 @@
 import '../Styles/main.css'
 import { Button } from '../Components/Components'
+import { useFetch } from '../Hooks/useFetch'
 
 interface AdProps{
   name: string,
@@ -22,18 +23,26 @@ function modalConect(props: AdProps){
 }
 
 function AddList(props: AdProps){
+  const {data: ads, isFetching} = useFetch<AdProps[]>('/ads/all')
+
   return(
     <div className="text-white flex items-center justify-center h-screen gap-6 " >
-      <div 
-      className="bg-slate-500 flex flex-col gap-6 items-center justify-center w-1/5 h-2/5 rounded-lg ">
-        <span>nome teste</span>
-        <span>dias jogados teste</span>
-        <span>hora inicio teste</span>
-        <span>hora fim teste</span>
-        <span>anos jogados teste</span>
-        <span>voice chat teste</span>
-        <Button content="Conectar" type="submit"/>
-      </div>
+      {
+        ads?.map(ad => {
+          return(
+            <div key={ad.name}
+            className="bg-slate-500 flex flex-col gap-6 items-center justify-center w-1/5 h-2/5 rounded-lg ">
+              <span>{ad.name}</span>
+              <span>dias jogados teste</span>
+              <span>hora inicio teste</span>
+              <span>hora fim teste</span>
+              <span>anos jogados teste</span>
+              <span>voice chat teste</span>
+              <Button content="Conectar" type="submit"/>
+            </div>
+          )
+        })
+      }
     </div>
   )
 }

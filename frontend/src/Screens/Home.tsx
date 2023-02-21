@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Title, Button } from '../Components/Components';
 import '../Styles/main.css'
 import { motion } from 'framer-motion'
+import axios from 'axios'
+import { useFetch } from '../Hooks/useFetch';
 
 type Games = {
   name: string,
@@ -9,19 +11,8 @@ type Games = {
 }
 
 function Home(){
-  const [games, setGames] = useState<Games[]>([])
-
-  useEffect(() => {
-    fetch("http://localhost:8080/games/all")
-    .then(resp => resp.json())
-    .then(data => {
-      setGames(data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  })
-
+  const { data: games, isFetching } = 
+    useFetch<Games[]>('/games/all');
 
   return (
     <div className="h-screen text-white">
@@ -33,7 +24,7 @@ function Home(){
           <Button content="Crie Seu Anuncio" type="submit"/>
         </div>
         <div className="flex justify-around items-center py-5  h-2/5 w-3/5 ">
-          { games.map(repo => {
+          { games?.map(repo => {
             return (
               <a href="" key={repo.name}>
                 <div className="w-52 flex flex-col items-center ">
