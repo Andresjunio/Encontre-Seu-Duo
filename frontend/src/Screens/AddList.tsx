@@ -2,46 +2,66 @@ import '../Styles/main.css'
 import { Button } from '../Components/Components'
 import { useFetch } from '../Hooks/useFetch'
 
+function Hour(time: number){
+  var hour = time/60;
+  return hour
+}
+
 interface AdProps{
-  player_id: number,
+  id: number,
+  player: {
+    id: number,
+    name: string,
+    discord: string,
+    rating: number,
+    yearsPlaying: number
+  },
+  game: {
+    id: number,
+    name: string
+  },
   hourStart: number,
   hourEnd: number,
-  yearsPlaying: number,
-  voiceChat: boolean,
-  discord: string,  
+  voiceChat: boolean,  
 }
 
 function modalConect(props: AdProps){
   return (
-    <div>
+    <div className="flex items-center justify-center ">
       <h1>Conexão criada.</h1>
+      {
+        
+      }
       <span>Entre com contato com o seu duo através do discord:</span>
-      <input type="hidden" placeholder={props.discord} />
     </div>
   )
 }
 
 function AddList(){
-  const {data: ads, isFetching} = useFetch<AdProps[]>('/ads/all')
+  const {data: ads, isFetching} = useFetch<AdProps[]>('/ads/1/all')
 
   return(
-    <div className="text-white flex items-center justify-center h-screen gap-6 " >
-      {
-        ads?.map(ad => {
-          return(
-            <div key={ad.player_id}
-            className="bg-slate-500 flex flex-col gap-6 items-center justify-center w-1/5 h-2/5 rounded-lg ">
-              <span>{ad.player_id}</span>
-              <span>dias jogados teste</span>
-              <span>{ad.hourStart}</span>
-              <span>{ad.hourEnd}</span>
-              <span>{ad.yearsPlaying}</span>
-              <span>{ad.voiceChat}</span>
-              <Button content="Conectar" type="submit"/>
-            </div>
-          )
-        })
-      }
+    <div className="text-white flex flex-col items-center justify-center h-screen gap-6 " >
+      <h1>{ads?.length} Anuncios encontrados</h1>
+      <div className=" w-screen flex h-3/5 gap-6 items-center justify-center">
+        {
+          ads?.map(ad => {
+            return(
+              <div key={ad.id}
+              className="bg-slate-500 flex flex-col gap-6 items-center justify-center w-80 h-96 rounded-lg ">
+
+                <h1 className="font-black text-3xl">{ad.player.name}</h1>
+                <span>Hora de início: {Hour(ad.hourStart)}</span>
+                <span>Hora do fim: {Hour(ad.hourEnd)}</span>
+                <span>Jogando à {ad.player.yearsPlaying} anos</span>
+                <span>Chat de voz: {ad.voiceChat? "Sim":"Não"}</span>
+                <span>Classificação: {ad.player.rating}</span>
+                <Button content="Conectar" type="submit"/>
+              </div>
+            )
+          })
+        }
+      </div>
     </div>
   )
 }

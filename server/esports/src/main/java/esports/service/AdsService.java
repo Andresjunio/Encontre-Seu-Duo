@@ -25,8 +25,12 @@ public class AdsService {
 	}
 	
 	
-	public ResponseEntity<List<Ads>> findAllAds(){
-		return new ResponseEntity<List<Ads>>(adsRepository.findAll(), HttpStatus.OK);		
+	public ResponseEntity<List<Ads>> findByGameId(Long id){
+		return new ResponseEntity<List<Ads>>(adsRepository.findByGameId(id), HttpStatus.OK);		
+	}
+	
+	public ResponseEntity<List<Ads>> findAll(){
+		return new ResponseEntity<List<Ads>>(adsRepository.findAll(), HttpStatus.OK);
 	}
 	
 	public ResponseEntity<Ads> getOneAd( Long id){
