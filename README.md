@@ -31,4 +31,12 @@ O Front-end está sendo construido com React e com a biblioteca CSS Tailwind, pa
 * Criação de novas Regras de negócio para controlar permissões de usuário e aumentar a complexidade do projeto de maneira geral.
 
 
+# Coisas que venho aprendendo com esse projeto
+
+* Consumo de api's no react
+* Executar querys JPQL (uma espécie de SQL para o JPA)
+* Manipulação de rotas 
+
+
+
 
