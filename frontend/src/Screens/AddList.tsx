@@ -3,13 +3,12 @@ import { Button } from '../Components/Components'
 import { useFetch } from '../Hooks/useFetch'
 
 interface AdProps{
-  name: string,
-  hourStart: Date,
-  hourEnd: Date,
-  yearsPlaying: BigInt,
-  voiceChat: Boolean,
+  player_id: number,
+  hourStart: number,
+  hourEnd: number,
+  yearsPlaying: number,
+  voiceChat: boolean,
   discord: string,  
-
 }
 
 function modalConect(props: AdProps){
@@ -22,7 +21,7 @@ function modalConect(props: AdProps){
   )
 }
 
-function AddList(props: AdProps){
+function AddList(){
   const {data: ads, isFetching} = useFetch<AdProps[]>('/ads/all')
 
   return(
@@ -30,14 +29,14 @@ function AddList(props: AdProps){
       {
         ads?.map(ad => {
           return(
-            <div key={ad.name}
+            <div key={ad.player_id}
             className="bg-slate-500 flex flex-col gap-6 items-center justify-center w-1/5 h-2/5 rounded-lg ">
-              <span>{ad.name}</span>
+              <span>{ad.player_id}</span>
               <span>dias jogados teste</span>
-              <span>hora inicio teste</span>
-              <span>hora fim teste</span>
-              <span>anos jogados teste</span>
-              <span>voice chat teste</span>
+              <span>{ad.hourStart}</span>
+              <span>{ad.hourEnd}</span>
+              <span>{ad.yearsPlaying}</span>
+              <span>{ad.voiceChat}</span>
               <Button content="Conectar" type="submit"/>
             </div>
           )

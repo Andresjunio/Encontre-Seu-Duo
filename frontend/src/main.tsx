@@ -13,8 +13,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     {/*<App />*/}
     {/*<Sign />*/}
     {/* <AddAds /> */}
-    <Home />
-    {/* <AddList/> */}
+    {/* <Home /> */}
+    <AddList/>
 
   </React.StrictMode>,
 )
