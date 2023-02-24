@@ -6,15 +6,19 @@ import './Styles/main.css'
 import AddAds from './Screens/AddAds'
 import Home from './Screens/Home'
 import  AddList  from './Screens/AddList'
+import { Router } from 'react-router-dom'
+import InitPage from './Screens/InitPage'
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    {/*<App />*/}
+    <App />
     {/*<Sign />*/}
     {/* <AddAds /> */}
     {/* <Home /> */}
-    <AddList/>
+    {/* <AddList/> */}
+    {/* <InitPage/> */}
 
   </React.StrictMode>,
-)
+
+  )

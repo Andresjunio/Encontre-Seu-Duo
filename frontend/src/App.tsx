@@ -1,35 +1,21 @@
 import './Styles/main.css'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import  InitPage  from './Screens/InitPage'
+import Home from './Screens/Home'
+import Sign from './Screens/Sign'
+import AddList from './Screens/AddList'
 
 function App() {
 
   return (
-    <div className="text-white h-screen w-screen flex items-center justify-center gap-6 ">
-        <div className="w-2/5 flex flex-col items-center">
-          <img src="" alt="" />
-          <h1 className="font-black font-inter text-5xl"> Seu duo está aqui</h1>
-        </div>
-        <div className="flex flex-col gap-4 w-2/5 items-center">
-          <input 
-          className="block w-2/3 h-16 rounded-lg p-4"
-          type="text"
-          name="user"
-          id="#user"
-          placeholder='Nome de usuário'/>
-          <input 
-          className="block w-2/3 h-16 rounded-lg p-4"
-          type="password"
-          name="password" 
-          id="#password" 
-          placeholder='Senha' />
-          <button
-          className="font-black text-xl bg-slate-300 w-2/3 py-4 rounded-lg text-black hover:bg-slate-400">
-            Login</button>
-          <a
-           className="font-black text-xl"
-           href="">
-            Ainda não possui registro? Cadastre-se aqui.</a>
-        </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<InitPage/>}/>
+        <Route path="/games/all" element={<Home/>}/>
+        <Route path="/player/new" element={<Sign/>}/>
+        <Route path="/ads/:id/all" element={<AddList/>}/>
+      </Routes>
+    </Router>
   )
 }
 

@@ -4,8 +4,10 @@ import '../Styles/main.css'
 import { motion } from 'framer-motion'
 import axios from 'axios'
 import { useFetch } from '../Hooks/useFetch';
+import { Link, useParams } from 'react-router-dom'
 
 type Games = {
+  id: number,
   name: string,
   bannerUrl: string
 }
@@ -26,12 +28,12 @@ function Home(){
         <div className="flex justify-around items-center py-5  h-2/5 w-3/5 ">
           { games?.map(repo => {
             return (
-              <a href="" key={repo.name}>
+              <Link to=""  key={repo.name}>
                 <div className="w-52 flex flex-col items-center ">
                   <img src={repo.bannerUrl} alt="" className="rounded-md h-52"/>
                   <span className="font-black mt-2">{repo.name}</span>
                 </div>
-              </a>
+              </Link>
             )
           })}
         </div>

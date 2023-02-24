@@ -31,7 +31,7 @@ public class PlayerController {
 		return playerService.updatePlayer(id, player);
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/new")
 	public ResponseEntity<Player> addPlayer(@RequestBody @Valid Player player){
 		return playerService.addPlayer(player);
 	}
