@@ -23,17 +23,17 @@ function Home(){
         <Title content="Encontre seu duo"/>
         <div className="flex justify-center gap-16 w-1/3 items-center">
           <h2 className="font-black text-xl">ou, se preferir</h2>
-          <Button content="Crie Seu Anuncio" type="submit"/>
+          <Link to="/ads/add"><Button content="Crie Seu Anuncio" type="submit"/></Link>
         </div>
         <div className="flex justify-around items-center py-5  h-2/5 w-3/5 ">
           { games?.map(repo => {
             return (
-              <Link to=""  key={repo.name}>
-                <div className="w-52 flex flex-col items-center ">
+                <Link to={`/ads/${repo.id}/all`}>
+                  <div key={repo.name} className="w-52 flex flex-col items-center ">
                   <img src={repo.bannerUrl} alt="" className="rounded-md h-52"/>
                   <span className="font-black mt-2">{repo.name}</span>
                 </div>
-              </Link>
+                </Link>
             )
           })}
         </div>

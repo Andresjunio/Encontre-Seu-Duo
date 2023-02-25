@@ -1,6 +1,7 @@
 import '../Styles/main.css'
 import { Button } from '../Components/Components'
 import { useFetch } from '../Hooks/useFetch'
+import { useParams } from 'react-router-dom';
 
 function Hour(time: number){
   var hour = time/60;
@@ -38,18 +39,18 @@ function modalConect(props: AdProps){
 }
 
 function AddList(){
-  const {data: ads, isFetching} = useFetch<AdProps[]>('/ads/1/all')
-
+  const { idGame } = useParams();
+  const {data: ads, isFetching} = useFetch<AdProps[]>(`ads/${idGame}/all`);
   return(
     <div className="text-white flex flex-col items-center justify-center h-screen gap-6 " >
       <h1>{ads?.length} Anuncios encontrados</h1>
       <div className=" w-screen flex h-3/5 gap-6 items-center justify-center">
         {
           ads?.map(ad => {
-            return(
+            {console.log(idGame)}
+           return(
               <div key={ad.id}
               className="bg-slate-500 flex flex-col gap-6 items-center justify-center w-80 h-96 rounded-lg ">
-
                 <h1 className="font-black text-3xl">{ad.player.name}</h1>
                 <span>Hora de início: {Hour(ad.hourStart)}</span>
                 <span>Hora do fim: {Hour(ad.hourEnd)}</span>

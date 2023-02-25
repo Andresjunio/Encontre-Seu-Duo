@@ -1,6 +1,17 @@
+import { useFetch } from '../Hooks/useFetch';
 import '../Styles/main.css'
 
+interface Player {
+  id: number,
+  name: string,
+  yearsPlaying: number,
+  discord: string,
+}
+
+
 function PlayerInfo(){
+  // const {data: player, isFetching } = useFetch<Player>("/player/new");
+
   return (
     <div className="text-white h-screen flex items-center justify-center">
       

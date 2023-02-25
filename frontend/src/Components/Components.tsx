@@ -35,7 +35,7 @@ function Button(butProps: ButtonProps){
   return (
     <div>
       <button
-       className=" bg-black w-48 h-9 rounded-lg font-black text-lg hover:bg-slate-800" 
+       className=" bg-slate-300 w-48 h-9 rounded-lg font-black text-lg hover:bg-slate-400 text-slate-900" 
        >{butProps.content}</button>
     </div>
   )
