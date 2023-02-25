@@ -33,9 +33,10 @@ O Front-end está sendo construido com React e com a biblioteca CSS Tailwind, pa
 
 # Coisas que venho aprendendo com esse projeto
 
-* Consumo de api's no react
+* Consumo de api's e exibição dos dados consumidos no react
 * Executar querys JPQL (uma espécie de SQL para o JPA)
-* Manipulação de rotas 
+* Manipulação de rotas com react-router-dom
+
 
 
 
