@@ -9,7 +9,7 @@ interface GameProps {
 
 function AddAds(){
 
-  const {data: game, isFetching } = useFetch<GameProps[]>('game/all');
+  const {data: game, isFetching } = useFetch<GameProps[]>('games/all');
 
   return (
     <div className="h-screen flex items-center justify-center">
@@ -20,33 +20,65 @@ function AddAds(){
           <span>Selecione o Game</span>
           {/* { game?.map (repo => {
             return (
-              <select key={repo.id} name="gameName" id="gameName">
-                <option>Selecione uma opção</option>
+              <select  name="gameName" id="gameName">
+                <option key={repo.id}>Selecione uma opção</option>
                 <option>{repo.name}</option>
               </select>
             )
           })} */}
+          <select name="gameName" id="gameName">
+            { game?.map (repo => {
+              <option value="Selecione">Selecione uma opção</option>
+              return (
+                <option value="game">{repo.name}</option>
+              )
+            })}
+
+          </select>
         </div>
         <div>
           <span>Selecione os dias da semana</span>
-          <input type="checkbox" name="sunday" id="" />
-          <input type="checkbox" name="monday" id="" />
-          <input type="checkbox" name="tuesday" id="" />
-          <input type="checkbox" name="wednesday" id="" />
-          <input type="checkbox" name="thursday" id="" />
-          <input type="checkbox" name="friday" id="" />
-          <input type="checkbox" name="saturday" id="" />
-        </div>
-        <div>
-          <span>Selecione os seus horários</span>
-          <input type="time" name="hourStard" id="" />
-          <span>às</span>
-          <input type="time" name="hourEnd" id="" />
-        </div>
-        <div>
-          <span>Você utiliza chat de voz?</span>
-          <input type="checkbox" name="voiceChat" id="" />
-        </div>
+          <div className="flex  gap-6 items-center">
+            <div className="flex flex-col items-center justify-center gap-2">
+              <span>Domingo</span>
+              <input type="checkbox" name="sunday" id="" />
+            </div>
+            <div className="flex flex-col items-center justify-center gap-2">
+              <span>Segunda</span>
+              <input type="checkbox" name="monday" id="" />
+            </div>
+            <div className="flex flex-col items-center justify-center gap-2">
+              <span>Terça</span>
+              <input type="checkbox" name="tuesday" id="" />
+            </div>
+            <div className="flex flex-col items-center justify-center gap-2">
+              <span>Quarta</span>
+              <input type="checkbox" name="wednesday" id="" />
+            </div>
+            <div className="flex flex-col items-center justify-center gap-2">
+              <span>Quinta</span>
+              <input type="checkbox" name="thursday" id="" />
+            </div>
+            <div className="flex flex-col items-center justify-center gap-2">
+              <span>Sexta</span>
+              <input type="checkbox" name="friday" id="" />
+            </div>
+            <div className="flex flex-col items-center justify-center gap-2">
+              <span>Sábado</span>
+              <input type="checkbox" name="saturday" id="" />
+            </div>
+            </div>
+            <div className="flex flex-col items-center justify-center gap-2">
+            <span>Selecione os seus horários</span>
+            <input type="time" name="hourStard" id="" />
+            <span>às</span>
+            <input type="time" name="hourEnd" id="" />
+                    </div>
+                    <div className="flex flex-col items-center justify-center">
+            <span>Você utiliza chat de voz?</span>
+            <input type="checkbox" name="voiceChat" id="" />
+                 </div>
+          </div>
         <Button content="Confirmar" type="submit"/>
       </div>
     </div>
