@@ -25,3 +25,19 @@ export function useFetch<T = unknown>(url: string){
 
   return { data, error, isFetching }
 }
+
+// export function usePost<T = unknown>(url: string, ){
+//   const [data, setData] = useState<T | null>(null)
+//   const [error, setError] = useState<Error | null>(null)
+//   useEffect(() => {
+//     api.post(url)
+//     .then(response => {
+//       console.log("Registros salvos", response.data)
+//       setData()
+//     })
+//     .catch(err => {
+//       setError(err)
+//     })
+//   })
+//   return { data, error }
+// }
